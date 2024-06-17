@@ -7,14 +7,17 @@ import FilterTask from "@/components/filter-task/FilterTask";
 import TaskList from "@/components/task-list/TaskList";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { Task } from "@/types";
+import { LOCAL_STORAGE_KEY, TASK_FILTER_STATUS } from "@/const.js";
 
 const inter = Inter({ subsets: ["latin"] });
-const LOCAL_STORAGE_KEY = "tasks";
 
 export default function TodoList() {
   const [tasks, setTasks] = useLocalStorage(LOCAL_STORAGE_KEY, []);
   const [searchText, setSearchText] = useState<string>("");
   const [isSortByCreatedAt, setIsSortByCreatedAt] = useState<boolean>(false);
+  const [taskFilterStatus, setTaskFilterStatus] = useState<string>(
+    TASK_FILTER_STATUS.ALL
+  );
 
   const addTask = (task: Task) => {
     setTasks([...tasks, task]);
@@ -28,7 +31,10 @@ export default function TodoList() {
           setSearchText={setSearchText}
           setIsSortByCreatedAt={setIsSortByCreatedAt}
         />
-        <FilterTask />
+        <FilterTask
+          taskFilterStatus={taskFilterStatus}
+          setTaskFilterStatus={setTaskFilterStatus}
+        />
         <TaskList />
       </main>
     </>

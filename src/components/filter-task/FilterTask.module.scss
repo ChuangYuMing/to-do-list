@@ -1,0 +1,22 @@
+.filter-task-wrap {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+
+  span {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    cursor: pointer;
+
+    &:hover {
+      color: #007bff;
+    }
+
+    &.is-active {
+      color: #007bff;
+    }
+  }
+}
