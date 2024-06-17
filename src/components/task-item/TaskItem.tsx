@@ -15,6 +15,22 @@ export default function TaskItem({
 }: TaskItemProps) {
   const [isEditing, setIsEditing] = useState<boolean>(false);
 
+  const formatDate = (timestamp: number) => {
+    const date = new Date(timestamp);
+    const formattedDate = date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+    const formattedTime = date.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
+    return `${formattedDate}, ${formattedTime}`;
+  };
+
   return (
     <div key={task.createdAt} className={styles["task-item"]}>
       <div className={styles["task-content"]}>
@@ -50,7 +66,9 @@ export default function TaskItem({
           Delete
         </span>
       </div>
-      <span className={styles["created-date"]}>{task.createdAt}</span>
+      <span className={styles["created-date"]}>
+        {formatDate(task.createdAt)}
+      </span>
     </div>
   );
 }

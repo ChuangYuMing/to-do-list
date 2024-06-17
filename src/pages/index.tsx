@@ -49,7 +49,7 @@ export default function TodoList() {
     .filter((task: Task) => task.description.includes(searchText))
     .sort((a: Task, b: Task) => {
       if (isSortByCreatedAt) {
-        return a.createdAt - b.createdAt;
+        return b.createdAt - a.createdAt;
       } else {
         return 0;
       }
