@@ -22,6 +22,39 @@ export default function TodoList() {
   const addTask = (task: Task) => {
     setTasks([...tasks, task]);
   };
+
+  const updateTask = (taskId: number, payload: Partial<Task>) => {
+    const updatedTasks = tasks.map((task: Task) => {
+      if (task.id === taskId) {
+        return { ...task, ...payload };
+      }
+      return task;
+    });
+
+    setTasks(updatedTasks);
+  };
+
+  const deleteTask = (taskId: number) => {
+    const updatedTasks = tasks.filter((task: Task) => task.id !== taskId);
+    setTasks(updatedTasks);
+  };
+
+  const filterTasks = tasks
+    .filter(
+      (task: Task) =>
+        taskFilterStatus === TASK_FILTER_STATUS.ALL ||
+        (taskFilterStatus === TASK_FILTER_STATUS.COMPLETED && task.completed) ||
+        (taskFilterStatus === TASK_FILTER_STATUS.UNCOMPLETED && !task.completed)
+    )
+    .filter((task: Task) => task.description.includes(searchText))
+    .sort((a: Task, b: Task) => {
+      if (isSortByCreatedAt) {
+        return a.createdAt - b.createdAt;
+      } else {
+        return 0;
+      }
+    });
+
   return (
     <>
       <main className={`${styles.main} ${inter.className}`}>
@@ -35,7 +68,11 @@ export default function TodoList() {
           taskFilterStatus={taskFilterStatus}
           setTaskFilterStatus={setTaskFilterStatus}
         />
-        <TaskList />
+        <TaskList
+          filterTasks={filterTasks}
+          updateTask={updateTask}
+          deleteTask={deleteTask}
+        />
       </main>
     </>
   );

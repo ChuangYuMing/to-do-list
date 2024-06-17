@@ -10,6 +10,7 @@ export default function AddTask({ addTask }: AddTaskProps) {
 
   const handleAddTask = (e: React.MouseEvent) => {
     addTask({
+      id: Date.now(),
       createdAt: Date.now(),
       description: taskDescription,
       completed: false,
