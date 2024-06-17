@@ -61,6 +61,7 @@ export default function TodoList() {
         <h1 className={styles.title}>To-Do List</h1>
         <AddTask addTask={addTask} />
         <SearchTask
+          searchText={searchText}
           setSearchText={setSearchText}
           setIsSortByCreatedAt={setIsSortByCreatedAt}
         />

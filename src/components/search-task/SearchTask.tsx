@@ -2,11 +2,13 @@ import React, { Dispatch, SetStateAction } from "react";
 import styles from "./SearchTask.module.scss";
 
 type SearchTaskProps = {
+  searchText: string;
   setSearchText: Dispatch<SetStateAction<string>>;
   setIsSortByCreatedAt: Dispatch<SetStateAction<boolean>>;
 };
 
 export default function SearchTask({
+  searchText,
   setSearchText,
   setIsSortByCreatedAt,
 }: SearchTaskProps) {
@@ -14,7 +16,7 @@ export default function SearchTask({
     <div className={styles["search-task-wrap"]}>
       <input
         type="text"
-        value=""
+        value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         placeholder="Search tasks"
         className="add-task-input"
