@@ -19,15 +19,22 @@ export default function SearchTask({
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         placeholder="Search tasks"
-        className="add-task-input"
+        className={styles["search-task-input"]}
       />
-      <div className="checkbox-wrap">
+      <div className={styles["checkbox-wrap"]}>
         <input
+          id="sort-by-created-date"
           type="checkbox"
           onChange={(e) => setIsSortByCreatedAt(e.target.checked)}
           name="sort-by-created-date"
+          className={styles["checkbox-input"]}
         />
-        <label htmlFor="sort-by-created-date">Sort by created date</label>
+        <label
+          htmlFor="sort-by-created-date"
+          className={styles["checkbox-label"]}
+        >
+          Sort by created date
+        </label>
       </div>
     </div>
   );

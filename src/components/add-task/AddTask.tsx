@@ -1,5 +1,6 @@
 import { Task } from "@/types";
 import React, { useState } from "react";
+import styles from "./AddTask.module.scss";
 
 type AddTaskProps = {
   addTask: (task: Task) => void;
@@ -19,15 +20,15 @@ export default function AddTask({ addTask }: AddTaskProps) {
     setTaskDescription("");
   };
   return (
-    <div className="add-task-wrap">
+    <div className={styles["add-task-wrap"]}>
       <input
         type="text"
         value={taskDescription}
         onChange={(e) => setTaskDescription(e.target.value)}
         placeholder="Add a new task"
-        className="add-task-input"
+        className={styles["add-task-input"]}
       />
-      <button className="add-task-button" onClick={handleAddTask}>
+      <button className={styles["add-task-button"]} onClick={handleAddTask}>
         Add
       </button>
     </div>

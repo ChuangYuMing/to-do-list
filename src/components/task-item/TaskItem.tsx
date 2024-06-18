@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useId } from "react";
 import { Task } from "@/types";
 import styles from "./TaskItem.module.scss";
 
@@ -13,6 +13,7 @@ export default function TaskItem({
   updateTask,
   deleteTask,
 }: TaskItemProps) {
+  const id = useId();
   const [isEditing, setIsEditing] = useState<boolean>(false);
 
   const formatDate = (timestamp: number) => {
@@ -35,10 +36,13 @@ export default function TaskItem({
     <div key={task.createdAt} className={styles["task-item"]}>
       <div className={styles["task-content"]}>
         <input
+          id={id}
           type="checkbox"
           checked={task.completed}
           onChange={(e) => updateTask(task.id, { completed: e.target.checked })}
+          className={styles["task-checkbox"]}
         />
+        <label htmlFor={id} className={styles["checkbox-label"]}></label>
         {isEditing ? (
           <input
             type="text"
@@ -47,9 +51,10 @@ export default function TaskItem({
               updateTask(task.id, { description: e.target.value })
             }
             onBlur={() => setIsEditing(false)}
+            className={styles["task-description-input"]}
           />
         ) : (
-          <span>{task.description}</span>
+          <span className={styles["task-description"]}>{task.description}</span>
         )}
       </div>
       <div className={styles["task-actions"]}>

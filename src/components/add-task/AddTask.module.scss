@@ -1,0 +1,35 @@
+.add-task-wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.add-task-input {
+  flex: 1;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: var(--primary-color);
+  }
+}
+
+.add-task-button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  color: var(--secondary-color);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 16px;
+  margin-left: 16px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: var(--primary-color-darker);
+  }
+}

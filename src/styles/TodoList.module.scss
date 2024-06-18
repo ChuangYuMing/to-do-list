@@ -7,4 +7,12 @@
   width: 100%;
   max-width: 640px;
   margin: auto;
+  padding: 16px 24px;
+  background-color: var(--background-color);
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-color);
 }

@@ -8,15 +8,36 @@
   span {
     font-size: 16px;
     font-weight: 700;
-    color: #333;
+    color: var(--text-color);
     cursor: pointer;
+    position: relative;
 
-    &:hover {
-      color: #007bff;
-    }
+    &.active {
+      color: var(--primary-color);
 
-    &.is-active {
-      color: #007bff;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: var(--accent-color);
+        animation: slideIn 0.3s ease-out forwards;
+      }
     }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+    left: 50%;
+    right: 50%;
+  }
+  to {
+    width: 100%;
+    left: 0;
+    right: 0;
   }
 }

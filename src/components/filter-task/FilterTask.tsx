@@ -19,7 +19,7 @@ export default function AddTask({
     <span
       key={status}
       data-status={status}
-      className={taskFilterStatus === status ? styles["is-active"] : ""}
+      className={taskFilterStatus === status ? styles["active"] : ""}
     >
       {status}
     </span>
