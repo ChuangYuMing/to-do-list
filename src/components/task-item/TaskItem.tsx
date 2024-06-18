@@ -1,4 +1,4 @@
-import React, { useState, useId } from "react";
+import React, { useEffect, useRef, useState, useId } from "react";
 import { Task } from "@/types";
 import styles from "./TaskItem.module.scss";
 
@@ -15,6 +15,7 @@ export default function TaskItem({
 }: TaskItemProps) {
   const id = useId();
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const formatDate = (timestamp: number) => {
     const date = new Date(timestamp);
@@ -32,6 +33,12 @@ export default function TaskItem({
     return `${formattedDate}, ${formattedTime}`;
   };
 
+  useEffect(() => {
+    if (isEditing) {
+      inputRef.current!.focus();
+    }
+  }, [isEditing]);
+
   return (
     <div key={task.createdAt} className={styles["task-item"]}>
       <div className={styles["task-content"]}>
@@ -45,25 +52,30 @@ export default function TaskItem({
         <label htmlFor={id} className={styles["checkbox-label"]}></label>
         {isEditing ? (
           <input
+            ref={inputRef}
             type="text"
             value={task.description}
             onChange={(e) =>
               updateTask(task.id, { description: e.target.value })
             }
             onBlur={() => setIsEditing(false)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                setIsEditing(false);
+              }
+            }}
             className={styles["task-description-input"]}
           />
         ) : (
-          <span className={styles["task-description"]}>{task.description}</span>
+          <span
+            className={styles["task-description"]}
+            onClick={() => setIsEditing(true)}
+          >
+            {task.description}
+          </span>
         )}
       </div>
       <div className={styles["task-actions"]}>
-        <span
-          className={styles["task-action"]}
-          onClick={() => setIsEditing(true)}
-        >
-          Edit
-        </span>
         <span
           className={styles["task-action"]}
           onClick={() => deleteTask(task.id)}
