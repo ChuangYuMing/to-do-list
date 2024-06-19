@@ -1,3 +1,5 @@
+@import "../../styles/mixins";
+
 .filter-task-wrap {
   width: 100%;
   display: grid;
@@ -6,11 +8,15 @@
   text-align: center;
 
   span {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--text-color);
     cursor: pointer;
     position: relative;
+
+    @include respond-to("small") {
+      font-size: 16px;
+    }
 
     &.active {
       color: var(--primary-color);

@@ -1,21 +1,29 @@
+@import "../../styles/mixins";
+
 .task-item {
-  display: flex;
   align-items: center;
   border-radius: 8px;
   background-color: white;
   justify-content: space-between;
   position: relative;
   width: 100%;
-  padding: 16px 24px;
-  gap: 48px;
+  padding: 8px 4px;
+  gap: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s, transform 0.2s;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  width: 100%;
+
+  @include respond-to("small") {
+    padding: 20px 24px;
+  }
 
   .task-content {
     display: flex;
     align-items: center;
-    height: 60px;
     flex: 1;
+    min-width: 0;
   }
 
   .task-checkbox {
@@ -59,6 +67,7 @@
     color: #333;
     width: 100%;
     padding: 8px;
+    min-height: 60px;
     border-bottom: 1px solid var(--primary-color);
     flex: 1;
 
@@ -73,9 +82,12 @@
     font-size: 16px;
     color: #333;
     flex: 1;
-    height: 60px;
-    line-height: 60px;
+    min-height: 60px;
     cursor: pointer;
+    word-wrap: break-word;
+    display: inline-flex;
+    align-items: center;
+    white-space: normal;
   }
 
   .task-actions {
@@ -101,6 +113,6 @@
     color: #999;
     position: absolute;
     right: 20px;
-    bottom: 8px;
+    bottom: 6px;
   }
 }

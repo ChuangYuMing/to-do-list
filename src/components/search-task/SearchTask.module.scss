@@ -1,11 +1,21 @@
+@import "../../styles/mixins";
+
 .search-task-wrap {
   display: flex;
   gap: 8px;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
+  flex-direction: column;
+
+  @include respond-to("small") {
+    flex-direction: row;
+    align-items: flex-start;
+    align-items: center;
+  }
 }
 
 .search-task-input {
+  flex: 0 2 auto;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -15,6 +25,10 @@
 
   &:focus {
     border-color: var(--primary-color);
+  }
+
+  @include respond-to("small") {
+    flex: 1 1 auto;
   }
 }
 
