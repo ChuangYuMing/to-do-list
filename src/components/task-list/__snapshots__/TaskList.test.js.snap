@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="task-list-wrap"
+  >
+    <div
+      class="task-item"
+    >
+      <div
+        class="task-content"
+      >
+        <input
+          class="task-checkbox"
+          id=":r0:"
+          type="checkbox"
+        />
+        <label
+          class="checkbox-label"
+          for=":r0:"
+        />
+        <span
+          class="task-description"
+        >
+          Task 1
+        </span>
+      </div>
+      <div
+        class="task-actions"
+      >
+        <span
+          class="task-action"
+        >
+          Delete
+        </span>
+      </div>
+      <span
+        class="created-date"
+      >
+        Jan 1, 1970, 08:00:00
+      </span>
+    </div>
+    <div
+      class="task-item"
+    >
+      <div
+        class="task-content"
+      >
+        <input
+          checked=""
+          class="task-checkbox"
+          id=":r1:"
+          type="checkbox"
+        />
+        <label
+          class="checkbox-label"
+          for=":r1:"
+        />
+        <span
+          class="task-description"
+        >
+          Task 2
+        </span>
+      </div>
+      <div
+        class="task-actions"
+      >
+        <span
+          class="task-action"
+        >
+          Delete
+        </span>
+      </div>
+      <span
+        class="created-date"
+      >
+        Jan 1, 1970, 08:00:00
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
