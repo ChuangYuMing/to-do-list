@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, useId } from "react";
 import { Task } from "@/types";
 import styles from "./TaskItem.module.scss";
+import { formatDate } from "@/utils";
 
 type TaskItemProps = {
   task: Task;
@@ -16,22 +17,6 @@ export default function TaskItem({
   const id = useId();
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
-
-  const formatDate = (timestamp: number) => {
-    const date = new Date(timestamp);
-    const formattedDate = date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-    const formattedTime = date.toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-    });
-    return `${formattedDate}, ${formattedTime}`;
-  };
 
   useEffect(() => {
     if (isEditing) {
@@ -53,6 +38,7 @@ export default function TaskItem({
         {isEditing ? (
           <input
             ref={inputRef}
+            role="contentInput"
             type="text"
             value={task.description}
             onChange={(e) =>
@@ -68,6 +54,7 @@ export default function TaskItem({
           />
         ) : (
           <span
+            role="description"
             className={styles["task-description"]}
             onClick={() => setIsEditing(true)}
           >
@@ -77,6 +64,7 @@ export default function TaskItem({
       </div>
       <div className={styles["task-actions"]}>
         <span
+          role="deleteTask"
           className={styles["task-action"]}
           onClick={() => deleteTask(task.id)}
         >

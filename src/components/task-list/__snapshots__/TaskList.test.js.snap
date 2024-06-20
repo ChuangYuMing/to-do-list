@@ -22,6 +22,7 @@ exports[`renders correctly 1`] = `
         />
         <span
           class="task-description"
+          role="description"
         >
           Task 1
         </span>
@@ -31,6 +32,7 @@ exports[`renders correctly 1`] = `
       >
         <span
           class="task-action"
+          role="deleteTask"
         >
           Delete
         </span>
@@ -38,7 +40,7 @@ exports[`renders correctly 1`] = `
       <span
         class="created-date"
       >
-        Jan 1, 1970, 08:00:00
+        Jan 1 1970, 08:00:00
       </span>
     </div>
     <div
@@ -59,6 +61,7 @@ exports[`renders correctly 1`] = `
         />
         <span
           class="task-description"
+          role="description"
         >
           Task 2
         </span>
@@ -68,6 +71,7 @@ exports[`renders correctly 1`] = `
       >
         <span
           class="task-action"
+          role="deleteTask"
         >
           Delete
         </span>
@@ -75,7 +79,7 @@ exports[`renders correctly 1`] = `
       <span
         class="created-date"
       >
-        Jan 1, 1970, 08:00:00
+        Jan 1 1970, 08:00:00
       </span>
     </div>
   </div>
