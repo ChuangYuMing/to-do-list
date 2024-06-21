@@ -2,6 +2,8 @@
 
 This project is a simple to-do list application built with Next.js, showcasing the ability to add, delete, and filter tasks.
 
+[![codecov](https://codecov.io/github/ChuangYuMing/to-do-list/graph/badge.svg?token=PCTO2E2A9S)](https://codecov.io/github/ChuangYuMing/to-do-list)
+
 ## Prerequisites
 
 - Node.js version 18.20 or higher
