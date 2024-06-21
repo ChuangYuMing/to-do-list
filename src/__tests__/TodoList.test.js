@@ -2,7 +2,6 @@ import "@testing-library/jest-dom";
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import TodoList from "../pages/index";
-import useLocalStorage from "src/hooks/useLocalStorage.js";
 
 describe("Task operations", () => {
   let tasks;
@@ -37,7 +36,8 @@ describe("Task operations", () => {
 
   it("deletes task correctly", () => {
     render(<TodoList />);
-    fireEvent.click(screen.getByText("Delete"));
+    const deleteButtons = screen.getAllByText("Delete");
+    fireEvent.click(deleteButtons[deleteButtons.length - 1]);
 
     expect(screen.queryByText("New Description")).not.toBeInTheDocument();
   });
