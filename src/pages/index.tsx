@@ -7,26 +7,19 @@ import FilterTask from "@/components/filter-task/FilterTask";
 import TaskList from "@/components/task-list/TaskList";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { Task } from "@/types";
-import { LOCAL_STORAGE_KEY, TASK_FILTER_STATUS } from "@/const.js";
+import {
+  defaultTasks,
+  LOCAL_STORAGE_KEY,
+  TASK_FILTER_STATUS,
+} from "@/const.js";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function TodoList() {
-  const defaultTasks = [
-    {
-      id: 1,
-      description: "Test Todo 1",
-      completed: false,
-      createdAt: 1718937031494,
-    },
-    {
-      id: 2,
-      description: "Test Todo 2",
-      completed: false,
-      createdAt: 1718237031494,
-    },
-  ];
-  const [tasks, setTasks] = useLocalStorage(LOCAL_STORAGE_KEY, defaultTasks);
+  const [tasks, setTasks, isLoading] = useLocalStorage<Task[]>(
+    LOCAL_STORAGE_KEY,
+    defaultTasks
+  );
   const [searchText, setSearchText] = useState<string>("");
   const [isSortByCreatedAt, setIsSortByCreatedAt] = useState<boolean>(false);
   const [taskFilterStatus, setTaskFilterStatus] = useState<string>(
@@ -68,6 +61,10 @@ export default function TodoList() {
         return 0;
       }
     });
+
+  if (isLoading) {
+    return <></>;
+  }
 
   return (
     <>
