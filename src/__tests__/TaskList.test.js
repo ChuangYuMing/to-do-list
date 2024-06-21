@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import TaskList from "./TaskList";
+import TaskList from "../components/task-list/TaskList";
 
 it("renders correctly", () => {
   const mockFilterTasks = [

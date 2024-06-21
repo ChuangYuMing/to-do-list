@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import FilterTask from "./FilterTask";
+import FilterTask from "../components/filter-task/FilterTask";
 import { TASK_FILTER_STATUS } from "@/const.js";
 
 describe("FilterTask Component", () => {

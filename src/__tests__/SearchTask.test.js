@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import SearchTask from "./SearchTask";
+import SearchTask from "../components/search-task/SearchTask";
 
 describe("SearchTask Component", () => {
   it("calls setSearchText on input change", () => {
