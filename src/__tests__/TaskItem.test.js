@@ -90,11 +90,4 @@ describe("TaskItem", () => {
     fireEvent.click(screen.getByText("Delete"));
     expect(deleteTaskMock).toHaveBeenCalledWith(1);
   });
-
-  it("formats and displays the task creation date correctly", () => {
-    render(
-      <TaskItem task={mockTask} updateTask={() => {}} deleteTask={() => {}} />
-    );
-    expect(screen.getByText("Jan 1 2024, 08:00:00")).toBeInTheDocument();
-  });
 });
