@@ -12,7 +12,21 @@ import { LOCAL_STORAGE_KEY, TASK_FILTER_STATUS } from "@/const.js";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function TodoList() {
-  const [tasks, setTasks] = useLocalStorage(LOCAL_STORAGE_KEY, []);
+  const defaultTasks = [
+    {
+      id: 1,
+      description: "Test Todo 1",
+      completed: false,
+      createdAt: 1718937031494,
+    },
+    {
+      id: 2,
+      description: "Test Todo 2",
+      completed: false,
+      createdAt: 1718237031494,
+    },
+  ];
+  const [tasks, setTasks] = useLocalStorage(LOCAL_STORAGE_KEY, defaultTasks);
   const [searchText, setSearchText] = useState<string>("");
   const [isSortByCreatedAt, setIsSortByCreatedAt] = useState<boolean>(false);
   const [taskFilterStatus, setTaskFilterStatus] = useState<string>(

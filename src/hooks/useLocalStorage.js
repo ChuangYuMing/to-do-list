@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 const useLocalStorage = (key, initialValue) => {
-  const [storedValue, setStoredValue] = useState(initialValue);
+  const [storedValue, setStoredValue] = useState([]);
   const [isMounted, setIsMounted] = useState(false);
   const initialValueRef = useRef(initialValue);
 
