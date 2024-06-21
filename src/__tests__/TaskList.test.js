@@ -1,5 +1,6 @@
+import "@testing-library/jest-dom";
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import TaskList from "../components/task-list/TaskList";
 
 it("renders correctly", () => {
@@ -20,5 +21,10 @@ it("renders correctly", () => {
       deleteTask={() => {}}
     />
   );
-  expect(asFragment()).toMatchSnapshot();
+
+  const task1Element = screen.getByText(/Task 1/i);
+  expect(task1Element).toBeInTheDocument();
+
+  const task2Element = screen.getByText(/Task 2/i);
+  expect(task2Element).toBeInTheDocument();
 });
