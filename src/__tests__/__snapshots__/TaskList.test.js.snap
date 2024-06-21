@@ -40,7 +40,7 @@ exports[`renders correctly 1`] = `
       <span
         class="created-date"
       >
-        Jan 1 1970, 08:00:00
+        Jun 21 2024, 12:39:57
       </span>
     </div>
     <div
@@ -79,7 +79,7 @@ exports[`renders correctly 1`] = `
       <span
         class="created-date"
       >
-        Jan 1 1970, 08:00:00
+        Jun 21 2024, 07:06:37
       </span>
     </div>
   </div>
